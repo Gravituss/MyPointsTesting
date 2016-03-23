@@ -20,11 +20,24 @@ public class MyPointsMain {
 	static boolean test12passed = false;
 	static int counter = 0;
 	static int total = 12;
+	static int desirableDelayBeforeClosingWindowAtEachTest = 2000;
+	static String email = "dkjfdhkjf5651@gmail.com";
+	static String passW = "dfdfdflijl55";
+	static String firstName = "Anton";
 
 	public static void main(String[] args) {
 
 		// Executing each test from a different class
 		Test01wrongDays.testingWrongDays();
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
 		// Printing the results of all tests
 		if (test01passed) {
