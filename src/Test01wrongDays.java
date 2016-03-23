@@ -11,6 +11,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class Test01WrongDays {
 
 	static void testingWrongDays() {
+		
+		// The key testing value is day of birth
+		String day1 = "55";	
+		String day2 = "-2";
 
 		// 2 parts of this test: firstly, we test 55th day of month
 		// secondly, we test negative value of day of month
@@ -86,7 +90,7 @@ public class Test01WrongDays {
 
 		driver01.findElement(By.id("birthDateMonth")).sendKeys("05");
 		driver01.findElement(By.id("birthDateYear")).sendKeys("1970");
-		driver01.findElement(By.id("birthDateDay")).sendKeys("55");
+		driver01.findElement(By.id("birthDateDay")).sendKeys(day1);
 		driver01.findElement(By.id("address.postalCode")).sendKeys("94043");
 
 		driver01.findElement(
@@ -111,7 +115,7 @@ public class Test01WrongDays {
 		// Trying with day value "-2"
 
 		driver01.findElement(By.id("birthDateDay")).clear();
-		driver01.findElement(By.id("birthDateDay")).sendKeys("-2");
+		driver01.findElement(By.id("birthDateDay")).sendKeys(day2);
 
 		driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[5]/button"))
@@ -143,6 +147,9 @@ public class Test01WrongDays {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+		
+		// Incrementing the counter of finished test cases
+		MyPointsMain.total++;
 
 		// Quitting this instance of driver
 		driver01.quit();

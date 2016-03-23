@@ -11,6 +11,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class Test03YearIsMoreThanCurrentYear {
 
 	static void testingFutureYear() {
+		
+		// The key testing value is year of birth
+		String year = "2075";
 
 		WebDriver driver01 = new FirefoxDriver();
 		driver01.get("https://www.mypoints.com/emp/u/index.vm");
@@ -78,7 +81,7 @@ public class Test03YearIsMoreThanCurrentYear {
 		// Trying with year value "2075"
 
 		driver01.findElement(By.id("birthDateMonth")).sendKeys("02");
-		driver01.findElement(By.id("birthDateYear")).sendKeys("2075");
+		driver01.findElement(By.id("birthDateYear")).sendKeys(year);
 		driver01.findElement(By.id("birthDateDay")).sendKeys("03");
 		driver01.findElement(By.id("address.postalCode")).sendKeys("94043");
 
@@ -111,6 +114,9 @@ public class Test03YearIsMoreThanCurrentYear {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+		
+		// Incrementing the counter of finished test cases
+		MyPointsMain.total++;
 
 		// Quitting this instance of driver
 		driver01.quit();

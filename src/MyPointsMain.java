@@ -20,7 +20,7 @@ public class MyPointsMain {
 	static boolean test12passed = false;
 	static int counter = 0;
 	// The number of total finished test cases
-	static int total = 3;
+	static int total = 0;
 	static int desirableDelayBeforeClosingWindowAtEachTest = 2000;
 	static String email = "dkjfdhkjf5651@gmail.com";
 	static String passW = "dfdfdflijl55";
@@ -32,6 +32,7 @@ public class MyPointsMain {
 		Test01WrongDays.testingWrongDays();
 		Test02WrongMonths.testingWrongMonths();
 		Test03YearIsMoreThanCurrentYear.testingFutureYear();
+		Test04YearIsLessThan1879.testingVeryOldYear();
 		
 		
 		
