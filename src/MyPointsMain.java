@@ -29,15 +29,6 @@ public class MyPointsMain {
 
 		// Executing each test from a different class
 		Test01wrongDays.testingWrongDays();
-		
-		
-		
-		
-		
-		
-		
-		
-		
 
 		// Printing the results of all tests
 		if (test01passed) {

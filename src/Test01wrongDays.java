@@ -100,7 +100,7 @@ public class Test01wrongDays {
 			t01part01 = false;
 		} else
 			t01part01 = true;
-		// ---------------------------------------
+		
 		// Trying with day value "-2"
 
 		driver01.findElement(By.id("birthDateDay")).clear();
@@ -117,7 +117,7 @@ public class Test01wrongDays {
 			t01part02 = false;
 		} else
 			t01part02 = true;
-		//-------------------------------------------
+		
 		// If both values were processed properly then Test01 is passed successfully
 		if (!t01part01 && !t01part02)
 			MyPointsMain.test01passed = true;
@@ -125,6 +125,7 @@ public class Test01wrongDays {
 		// Sleeping a bit before quitting this instance of driver
 		try{Thread.sleep(MyPointsMain.desirableDelayBeforeClosingWindowAtEachTest);}
 			catch(Exception e){System.out.println(e);}
+		
 		// Quitting this instance of driver
 		driver01.quit();
 
