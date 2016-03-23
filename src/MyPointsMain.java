@@ -19,7 +19,8 @@ public class MyPointsMain {
 	static boolean test11passed = false;
 	static boolean test12passed = false;
 	static int counter = 0;
-	static int total = 12;
+	// The number of total finished test cases
+	static int total = 3;
 	static int desirableDelayBeforeClosingWindowAtEachTest = 2000;
 	static String email = "dkjfdhkjf5651@gmail.com";
 	static String passW = "dfdfdflijl55";
@@ -30,6 +31,11 @@ public class MyPointsMain {
 		// Executing each test from a different class
 		Test01WrongDays.testingWrongDays();
 		Test02WrongMonths.testingWrongMonths();
+		Test03YearIsMoreThanCurrentYear.testingFutureYear();
+		
+		
+		
+		
 
 		// Printing the results of all tests
 		if (test01passed) {

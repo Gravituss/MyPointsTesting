@@ -1,6 +1,6 @@
-// This test will check how the website reacts if we type wrong month
-// Expected result: it will not open another webpage after trying to submit the
-// registration form
+//This test will check how the website reacts if we type the year value more than current year
+//Expected result: it will not open another webpage after trying to submit the
+//registration form
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,16 +8,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Test02WrongMonths {
+public class Test03YearIsMoreThanCurrentYear {
 
-	static void testingWrongMonths() {
-
-		// 2 parts of this test: firstly, we test 13th month
-		// secondly, we test negative value of month
-		// if at least one part is true (wrong value accepted) then the test
-		// result is false
-		boolean t02part01 = false;
-		boolean t02part02 = false;
+	static void testingFutureYear() {
 
 		WebDriver driver01 = new FirefoxDriver();
 		driver01.get("https://www.mypoints.com/emp/u/index.vm");
@@ -82,10 +75,10 @@ public class Test02WrongMonths {
 				.sendKeys(MyPointsMain.firstName);
 
 		// ---------------------------------------
-		// Trying with month value "13"
+		// Trying with year value "2075"
 
-		driver01.findElement(By.id("birthDateMonth")).sendKeys("13");
-		driver01.findElement(By.id("birthDateYear")).sendKeys("1970");
+		driver01.findElement(By.id("birthDateMonth")).sendKeys("02");
+		driver01.findElement(By.id("birthDateYear")).sendKeys("2075");
 		driver01.findElement(By.id("birthDateDay")).sendKeys("03");
 		driver01.findElement(By.id("address.postalCode")).sendKeys("94043");
 
@@ -96,45 +89,21 @@ public class Test02WrongMonths {
 		// If the inscription "Step 1 of X" is still on the page then we are at
 		// the same page
 		// and the website processed the wrong value correctly
-		try {
-			driver01.findElement(
-					By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
-					.isDisplayed();
-			if (driver01.findElement(
-					By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
-					.isDisplayed()) {
-				t02part01 = false;
-			} else t02part01 = true;
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-
-		// Trying with month value "-1"
-
-		driver01.findElement(By.id("birthDateMonth")).clear();
-		driver01.findElement(By.id("birthDateMonth")).sendKeys("-1");
-
-		driver01.findElement(
-				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[5]/button"))
-				.click();
 
 		try {
 			driver01.findElement(
 					By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
 					.isDisplayed();
-			if (driver01.findElement(
-					By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
+			if (driver01
+					.findElement(
+							By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
 					.isDisplayed()) {
-				t02part02 = false;
-			} else t02part02 = true;
+				MyPointsMain.test03passed = true;
+			}
+
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-
-		// If both values were processed properly then Test01 is passed
-		// successfully
-		if (!t02part01 && !t02part02)
-			MyPointsMain.test02passed = true;
 
 		// Sleeping a bit before quitting this instance of driver
 		try {

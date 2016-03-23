@@ -32,7 +32,6 @@ public class Test01WrongDays {
 		driver01.manage().window().maximize();
 
 		// Waiting for the link "Join now" and clicking on it
-
 		WebDriverWait wait2 = new WebDriverWait(driver01, 25);
 		wait2.until(ExpectedConditions.visibilityOfElementLocated(By
 				.xpath(".//*[@id='main-header']/div/div[2]/ul[2]/li[2]/a")));
@@ -94,13 +93,21 @@ public class Test01WrongDays {
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[5]/button"))
 				.click();
 
-		if (driver01.findElement(
-						By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
-				.isDisplayed()) {
-			t01part01 = false;
-		} else
-			t01part01 = true;
-		
+		try {
+			driver01.findElement(
+					By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
+					.isDisplayed();
+			if (driver01
+					.findElement(
+							By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
+					.isDisplayed()) {
+				t01part01 = false;
+			} else
+				t01part01 = true;
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
 		// Trying with day value "-2"
 
 		driver01.findElement(By.id("birthDateDay")).clear();
@@ -110,21 +117,33 @@ public class Test01WrongDays {
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[5]/button"))
 				.click();
 
-		if (driver01.findElement(
-						By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
-				.isDisplayed()) {
-			t01part02 = false;
-		} else
-			t01part02 = true;
-		
-		// If both values were processed properly then Test01 is passed successfully
+		try {
+			driver01.findElement(
+					By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
+					.isDisplayed();
+			if (driver01
+					.findElement(
+							By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
+					.isDisplayed()) {
+				t01part02 = false;
+			} else
+				t01part02 = true;
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		// If both values were processed properly then Test01 is passed
+		// successfully
 		if (!t01part01 && !t01part02)
 			MyPointsMain.test01passed = true;
-		
+
 		// Sleeping a bit before quitting this instance of driver
-		try{Thread.sleep(MyPointsMain.desirableDelayBeforeClosingWindowAtEachTest);}
-			catch(Exception e){System.out.println(e);}
-		
+		try {
+			Thread.sleep(MyPointsMain.desirableDelayBeforeClosingWindowAtEachTest);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
 		// Quitting this instance of driver
 		driver01.quit();
 
