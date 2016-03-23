@@ -34,13 +34,13 @@ public class MyPointsMain {
 		Test03YearIsMoreThanCurrentYear.testingFutureYear();
 		Test04YearIsLessThan1879.testingVeryOldYear();
 		Test05LettersInsteadOfDigits.testingLettersInsteadOfDigitsInBirthday();
-		
-		
-		
-		
-		
 
 		// Printing the results of all tests
+		MyPointsMain.printingResults();
+
+	}
+
+	static void printingResults() {
 		if (test01passed) {
 			counter++;
 			System.out.println("Test -01- passed: true");
