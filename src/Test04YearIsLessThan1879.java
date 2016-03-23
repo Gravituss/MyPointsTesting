@@ -73,7 +73,7 @@ public class Test04YearIsLessThan1879 {
 		wait4.until(ExpectedConditions.visibilityOfElementLocated(By
 				.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/p/a[2]")));
 
-		// Clicking to the Step 1 of 2 text to scroll the page neatly
+		// Clicking on the Step 1 of 2 text to scroll the page neatly
 		try{
 			driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/h2"))
