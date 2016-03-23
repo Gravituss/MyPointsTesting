@@ -28,14 +28,14 @@ public class MyPointsMain {
 	public static void main(String[] args) {
 
 		// Executing each test from a different class
-		/*Test01WrongDays.testingWrongDays();
+		Test01WrongDays.testingWrongDays();
 		Test02WrongMonths.testingWrongMonths();
 		Test03YearIsMoreThanCurrentYear.testingFutureYear();
 		Test04YearIsLessThan1879.testingVeryOldYear();
 		Test05LettersInsteadOfDigits.testingLettersInsteadOfDigitsInBirthday();  
 		Test06VeryShortPassword.testingVeryShortPasswd();
 		Test07CrossForClosingRegForm.testingTheClosingCross();
-		Test08TotallyInvalidEmail.testingTotallyInvalidEmail();*/
+		Test08TotallyInvalidEmail.testingTotallyInvalidEmail();
 		Test09LinkTermsOfService.testingTheLinkTermsOfService();
 
 		// Printing the results of all tests
