@@ -33,6 +33,8 @@ public class MyPointsMain {
 		Test02WrongMonths.testingWrongMonths();
 		Test03YearIsMoreThanCurrentYear.testingFutureYear();
 		Test04YearIsLessThan1879.testingVeryOldYear();
+		Test05LettersInsteadOfDigits.testingLettersInsteadOfDigitsInBirthday();
+		
 		
 		
 		

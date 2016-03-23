@@ -1,7 +1,8 @@
 
-//This test will check how the website reacts if we type the year value less than 1899
-//Expected result: it will not open another webpage after trying to submit the
-//registration form
+// This test will check how the website reacts if we type letters instead of digits
+// in the field for birthday
+// Expected result: it will not open another webpage after trying to submit the
+// registration form
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,17 +10,23 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+public class Test05LettersInsteadOfDigits {
 
-// 1879 because the oldest guy in the world was born in 1899, but the thing is that 
-// there is still some probability that the Internet doesn't know about some other old man
-// who is a bit older than the oldest man in the world.
-public class Test04YearIsLessThan1879 {
-	
+	static void testingLettersInsteadOfDigitsInBirthday() {
 
-	static void testingVeryOldYear() {
-		
-		// The key testing value is year of birth
-		String year = "1777";
+		// The key testing values are day, month, year of birth
+		String day1 = "tt";
+		String month1 = "pp";
+		String year1 = "asdf";
+
+		// 3 parts of this test: firstly, we test letters in field of day
+		// secondly, we test letters in field of month
+		// thirdly, we test letters in field of year of birth
+		// if at least one part is true (wrong value accepted) then the test
+		// result is false
+		boolean t05part01 = false;
+		boolean t05part02 = false;
+		boolean t05part03 = false;
 
 		WebDriver driver01 = new FirefoxDriver();
 		driver01.get("https://www.mypoints.com/emp/u/index.vm");
@@ -84,11 +91,11 @@ public class Test04YearIsLessThan1879 {
 				.sendKeys(MyPointsMain.firstName);
 
 		// ---------------------------------------
-		// Trying with year value "1987"
+		// Trying with day value "tt"
 
-		driver01.findElement(By.id("birthDateMonth")).sendKeys("02");
-		driver01.findElement(By.id("birthDateYear")).sendKeys(year);
-		driver01.findElement(By.id("birthDateDay")).sendKeys("03");
+		driver01.findElement(By.id("birthDateMonth")).sendKeys("03");
+		driver01.findElement(By.id("birthDateYear")).sendKeys("1970");
+		driver01.findElement(By.id("birthDateDay")).sendKeys(day1);
 		driver01.findElement(By.id("address.postalCode")).sendKeys("94043");
 
 		driver01.findElement(
@@ -98,6 +105,32 @@ public class Test04YearIsLessThan1879 {
 		// If the inscription "Step 1 of X" is still on the page then we are at
 		// the same page
 		// and the website processed the wrong value correctly
+		try {
+			driver01.findElement(
+					By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
+					.isDisplayed();
+			if (driver01
+					.findElement(
+							By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
+					.isDisplayed()) {
+				t05part01 = false;
+			} else
+				t05part01 = true;
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		// Re-entering a valid value for day field
+		driver01.findElement(By.id("birthDateDay")).clear();
+		driver01.findElement(By.id("birthDateDay")).sendKeys("15");
+
+		// Trying with month value "pp"
+		driver01.findElement(By.id("birthDateMonth")).clear();
+		driver01.findElement(By.id("birthDateMonth")).sendKeys(month1);
+
+		driver01.findElement(
+				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[5]/button"))
+				.click();
 
 		try {
 			driver01.findElement(
@@ -107,12 +140,44 @@ public class Test04YearIsLessThan1879 {
 					.findElement(
 							By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
 					.isDisplayed()) {
-				MyPointsMain.test04passed = true;
-			}
-
+				t05part02 = false;
+			} else
+				t05part02 = true;
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+
+		// Re-entering a valid value for month field
+		driver01.findElement(By.id("birthDateMonth")).clear();
+		driver01.findElement(By.id("birthDateMonth")).sendKeys("07");
+
+		// Trying with year value "asdf"
+		driver01.findElement(By.id("birthDateYear")).clear();
+		driver01.findElement(By.id("birthDateYear")).sendKeys(year1);
+
+		driver01.findElement(
+				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[5]/button"))
+				.click();
+
+		try {
+			driver01.findElement(
+					By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
+					.isDisplayed();
+			if (driver01
+					.findElement(
+							By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
+					.isDisplayed()) {
+				t05part03 = false;
+			} else
+				t05part03 = true;
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		// If all the three values were processed properly then Test05 is passed
+		// successfully
+		if (!t05part01 && !t05part02 && !t05part03)
+			MyPointsMain.test05passed = true;
 
 		// Sleeping a bit before quitting this instance of driver
 		try {
@@ -120,7 +185,7 @@ public class Test04YearIsLessThan1879 {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		
+
 		// Incrementing the counter of finished test cases
 		MyPointsMain.total++;
 
