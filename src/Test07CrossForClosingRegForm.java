@@ -1,3 +1,7 @@
+// This test will check if the closing cross works
+// Expected result: the form disappears, so we can't find email text field
+
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;

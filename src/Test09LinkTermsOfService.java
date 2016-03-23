@@ -1,8 +1,3 @@
-// This test will check how the website operates invalid emails
-// Expected result: Continue button doesn't work so we don't pass to
-// the next step
-
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -10,12 +5,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-public class Test08TotallyInvalidEmail {
+public class Test09LinkTermsOfService {
 	
-	static void testingTotallyInvalidEmail(){
+	static void testingTheLinkTermsOfService (){
 		
-		// The key testing value is email
-		String emmail = "some.text";
 		
 		WebDriver driver01 = new FirefoxDriver();
 		driver01.get("https://www.mypoints.com/emp/u/index.vm");
@@ -50,7 +43,7 @@ public class Test08TotallyInvalidEmail {
 		try{
 			driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[1]/input[11]"))
-				.sendKeys(emmail);
+				.sendKeys(MyPointsMain.email);
 		} catch(Exception e){
 			MyPointsMain.test07passed = true;}
 		
@@ -68,17 +61,65 @@ public class Test08TotallyInvalidEmail {
 				.click();
 		} catch(Exception e){System.out.println(e);}
 		
-		// Trying to find email
+		// Getting the handler of the first window
+		String window1 = driver01.getWindowHandle();
+		
+		// Waiting for the link "Terms of Service" and clicking on it
+		WebDriverWait wait4 = new WebDriverWait(driver01, 25);
+		wait4.until(ExpectedConditions.visibilityOfElementLocated(By
+				.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/p/a[1]")));
+	
 		try{
 			driver01.findElement(
-				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[1]/input[11]"))
+				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/p/a[1]"))
+				.click();
+		} catch(Exception e){System.out.println(e);}
+		
+		// Getting the handler of the second window
+		String window2 = driver01.getWindowHandle();
+		
+		// Switching to the handler of the second window
+		driver01.switchTo().window(window1);
+		
+		MyPointsMain.sleepingABit();
+		
+		
+		driver01.switchTo().window(window2);
+		
+
+		MyPointsMain.sleepingABit();			driver01.switchTo().window(window1);
+		
+		MyPointsMain.sleepingABit();
+		
+		
+		driver01.switchTo().window(window2);
+		
+
+		MyPointsMain.sleepingABit();			driver01.switchTo().window(window1);
+		
+		MyPointsMain.sleepingABit();
+		
+		
+		driver01.switchTo().window(window2);
+		
+
+		MyPointsMain.sleepingABit();		
+		
+		// Waiting and checking the header of Terms of Service article
+		WebDriverWait wait5 = new WebDriverWait(driver01, 25);
+		wait5.until(ExpectedConditions.visibilityOfElementLocated(By
+				.xpath("html/body/div[3]/div/h3")));
+	
+		try{
+			driver01.findElement(
+				By.xpath("html/body/div[3]/div/h3"))
 				.click();
 			
-			// If we find the email web element, then Continue button didn't work,
-			// so the website operated with wrong email properly
-			MyPointsMain.test08passed = true;
-		} catch(Exception e){
-			MyPointsMain.test07passed = true;}		
+			if ((driver01.getPageSource().contains("Terms of Service")) &&
+					(driver01.getPageSource().contains("Disclaimer")))
+			{MyPointsMain.test09passed = true;}
+			
+		} catch(Exception e){System.out.println(e);}
 		
 		// Incrementing the counter of finished test cases
 		MyPointsMain.total++;
@@ -88,7 +129,7 @@ public class Test08TotallyInvalidEmail {
 
 		// Quitting this instance of driver
 		driver01.quit();
-	
+		
 	}
 
 }

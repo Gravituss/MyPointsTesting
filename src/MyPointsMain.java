@@ -28,14 +28,15 @@ public class MyPointsMain {
 	public static void main(String[] args) {
 
 		// Executing each test from a different class
-		Test01WrongDays.testingWrongDays();
+		/*Test01WrongDays.testingWrongDays();
 		Test02WrongMonths.testingWrongMonths();
 		Test03YearIsMoreThanCurrentYear.testingFutureYear();
 		Test04YearIsLessThan1879.testingVeryOldYear();
 		Test05LettersInsteadOfDigits.testingLettersInsteadOfDigitsInBirthday();  
 		Test06VeryShortPassword.testingVeryShortPasswd();
 		Test07CrossForClosingRegForm.testingTheClosingCross();
-		Test08TotallyInvalidEmail.testingTotallyInvalidEmail();
+		Test08TotallyInvalidEmail.testingTotallyInvalidEmail();*/
+		Test09LinkTermsOfService.testingTheLinkTermsOfService();
 
 		// Printing the results of all tests
 		MyPointsMain.printingResults();
@@ -131,23 +132,19 @@ public class MyPointsMain {
 		if (test09passed) {
 			counter++;
 			System.out.println("Test -09- passed: true");
-			System.out.println("The inscription -Tell us a little bit"
-				+ " about yourself to help us personalize your feed.- is displayed on"
-				+ " the page of the registration form");
+			System.out.println("The link -Terms of service- works fine");
 		} else {
 			System.out.println("Test -09- passed: FALSE");
-			System.out.println("The inscription -Tell us a little bit"
-				+ " about yourself to help us personalize your feed.- isn't"
-				+ " displayed on the page of the registration form");
+			System.out.println("The link -Terms of service- doesn't work fine");
 		}
 		System.out.println("-----------");
 		if (test10passed) {
 			counter++;
 			System.out.println("Test -10- passed: true");
-			System.out.println("The link -Terms of service- works fine");
+			System.out.println("-----+++------");
 		} else {
 			System.out.println("Test -10- passed: FALSE");
-			System.out.println("The link -Terms of service- doesn't work fine");
+			System.out.println("+++++---+++++");
 		}
 		System.out.println("-----------");
 		if (test11passed) {
