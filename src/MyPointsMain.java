@@ -34,6 +34,7 @@ public class MyPointsMain {
 		Test04YearIsLessThan1879.testingVeryOldYear();
 		Test05LettersInsteadOfDigits.testingLettersInsteadOfDigitsInBirthday();  
 		Test06VeryShortPassword.testingVeryShortPasswd();
+		Test07CrossForClosingRegForm.testingTheClosingCross();
 
 		// Printing the results of all tests
 		MyPointsMain.printingResults();
