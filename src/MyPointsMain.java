@@ -1,7 +1,6 @@
 // 123
 
-import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.*;
+
 
 public class MyPointsMain {
 
@@ -33,7 +32,8 @@ public class MyPointsMain {
 		Test02WrongMonths.testingWrongMonths();
 		Test03YearIsMoreThanCurrentYear.testingFutureYear();
 		Test04YearIsLessThan1879.testingVeryOldYear();
-		Test05LettersInsteadOfDigits.testingLettersInsteadOfDigitsInBirthday();
+		Test05LettersInsteadOfDigits.testingLettersInsteadOfDigitsInBirthday();  
+		Test06VeryShortPassword.testingVeryShortPasswd();
 
 		// Printing the results of all tests
 		MyPointsMain.printingResults();
@@ -108,40 +108,35 @@ public class MyPointsMain {
 		if (test07passed) {
 			counter++;
 			System.out.println("Test -07- passed: true");
-			System.out
-					.println("The cross for closing registration form works fine");
+			System.out.println("The cross for closing registration form works fine");
 		} else {
 			System.out.println("Test -07- passed: FALSE");
-			System.out
-					.println("The cross for closing registration form doesn't work fine");
+			System.out.println("The cross for closing registration" +
+					" form doesn't work fine");
 		}
 		System.out.println("-----------");
 		if (test08passed) {
 			counter++;
 			System.out.println("Test -08- passed: true");
-			System.out
-					.println("Entering something without @ in the email field"
+			System.out.println("Entering something without @ in the email field"
 							+ " is being processed properly");
 		} else {
 			System.out.println("Test -08- passed: FALSE");
-			System.out
-					.println("Entering something without @ in the email field"
+			System.out.println("Entering something without @ in the email field"
 							+ " isn't being processed properly");
 		}
 		System.out.println("-----------");
 		if (test09passed) {
 			counter++;
 			System.out.println("Test -09- passed: true");
-			System.out
-					.println("The inscription -Tell us a little bit"
-							+ " about yourself to help us personalize your feed.- is displayed on"
-							+ " the page of the registration form");
+			System.out.println("The inscription -Tell us a little bit"
+				+ " about yourself to help us personalize your feed.- is displayed on"
+				+ " the page of the registration form");
 		} else {
 			System.out.println("Test -09- passed: FALSE");
-			System.out
-					.println("The inscription -Tell us a little bit"
-							+ " about yourself to help us personalize your feed.- isn't"
-							+ " displayed on the page of the registration form");
+			System.out.println("The inscription -Tell us a little bit"
+				+ " about yourself to help us personalize your feed.- isn't"
+				+ " displayed on the page of the registration form");
 		}
 		System.out.println("-----------");
 		if (test10passed) {

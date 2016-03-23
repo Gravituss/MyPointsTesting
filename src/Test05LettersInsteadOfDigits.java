@@ -1,4 +1,3 @@
-
 // This test will check how the website reacts if we type letters instead of digits
 // in the field for birthday
 // Expected result: it will not open another webpage after trying to submit the
@@ -45,9 +44,11 @@ public class Test05LettersInsteadOfDigits {
 		wait2.until(ExpectedConditions.visibilityOfElementLocated(By
 				.xpath(".//*[@id='main-header']/div/div[2]/ul[2]/li[2]/a")));
 
+		try{
 		driver01.findElement(
 				By.xpath(".//*[@id='main-header']/div/div[2]/ul[2]/li[2]/a"))
 				.click();
+		} catch(Exception e){System.out.println(e);}
 
 		// Waiting for some bottom-located web element appear
 		// as an indication of the loading the registration form
@@ -56,19 +57,25 @@ public class Test05LettersInsteadOfDigits {
 				.xpath("html/body/div[5]/div/div/div[3]/div/form/div[1]/button")));
 
 		// Entering email
+		try{
 		driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[1]/input[11]"))
 				.sendKeys(MyPointsMain.email);
+		} catch(Exception e){System.out.println(e);}
 
 		// Entering password
+		try{
 		driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[1]/input[12]"))
 				.sendKeys(MyPointsMain.passW);
+		} catch(Exception e){System.out.println(e);}
 
 		// Clicking the button Continue
+		try{
 		driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[1]/button"))
 				.click();
+		} catch(Exception e){System.out.println(e);}
 
 		// Waiting for Privacy policy link to appear
 		WebDriverWait wait4 = new WebDriverWait(driver01, 25);
@@ -76,31 +83,47 @@ public class Test05LettersInsteadOfDigits {
 				.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/p/a[2]")));
 
 		// Clicking to the Step 1 of 2 text to scroll the page neatly
+		try{
 		driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/h2"))
 				.click();
+		} catch(Exception e){System.out.println(e);}
 
 		// Clicking on the image of Male
+		try{
 		driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
 				.click();
+		} catch(Exception e){System.out.println(e);}
 
 		// Entering first name
+		try{
 		driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[2]/div[2]/input[1]"))
 				.sendKeys(MyPointsMain.firstName);
+		} catch(Exception e){System.out.println(e);}
 
 		// ---------------------------------------
 		// Trying with day value "tt"
 
-		driver01.findElement(By.id("birthDateMonth")).sendKeys("03");
-		driver01.findElement(By.id("birthDateYear")).sendKeys("1970");
-		driver01.findElement(By.id("birthDateDay")).sendKeys(day1);
-		driver01.findElement(By.id("address.postalCode")).sendKeys("94043");
+		try{
+			driver01.findElement(By.id("birthDateMonth")).sendKeys("03");
+		} catch(Exception e){System.out.println(e);}
+		try{
+			driver01.findElement(By.id("birthDateYear")).sendKeys("1970");
+		} catch(Exception e){System.out.println(e);}
+		try{
+			driver01.findElement(By.id("birthDateDay")).sendKeys(day1);
+		} catch(Exception e){System.out.println(e);}
+		try{
+			driver01.findElement(By.id("address.postalCode")).sendKeys("94043");
+		} catch(Exception e){System.out.println(e);}
 
+		try{
 		driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[5]/button"))
 				.click();
+		} catch(Exception e){System.out.println(e);}
 
 		// If the inscription "Step 1 of X" is still on the page then we are at
 		// the same page
@@ -121,16 +144,26 @@ public class Test05LettersInsteadOfDigits {
 		}
 
 		// Re-entering a valid value for day field
-		driver01.findElement(By.id("birthDateDay")).clear();
-		driver01.findElement(By.id("birthDateDay")).sendKeys("15");
+		try{
+			driver01.findElement(By.id("birthDateDay")).clear();
+		} catch(Exception e){System.out.println(e);}
+		try{
+			driver01.findElement(By.id("birthDateDay")).sendKeys("15");
+		} catch(Exception e){System.out.println(e);}
 
 		// Trying with month value "pp"
-		driver01.findElement(By.id("birthDateMonth")).clear();
-		driver01.findElement(By.id("birthDateMonth")).sendKeys(month1);
+		try{
+			driver01.findElement(By.id("birthDateMonth")).clear();
+		} catch(Exception e){System.out.println(e);}
+		try{
+			driver01.findElement(By.id("birthDateMonth")).sendKeys(month1);
+		} catch(Exception e){System.out.println(e);}
 
+		try{
 		driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[5]/button"))
 				.click();
+		} catch(Exception e){System.out.println(e);}
 
 		try {
 			driver01.findElement(
@@ -148,16 +181,26 @@ public class Test05LettersInsteadOfDigits {
 		}
 
 		// Re-entering a valid value for month field
-		driver01.findElement(By.id("birthDateMonth")).clear();
-		driver01.findElement(By.id("birthDateMonth")).sendKeys("07");
+		try{
+			driver01.findElement(By.id("birthDateMonth")).clear();
+		} catch(Exception e){System.out.println(e);}
+		try{
+			driver01.findElement(By.id("birthDateMonth")).sendKeys("07");
+		} catch(Exception e){System.out.println(e);}
 
 		// Trying with year value "asdf"
-		driver01.findElement(By.id("birthDateYear")).clear();
-		driver01.findElement(By.id("birthDateYear")).sendKeys(year1);
+		try{
+			driver01.findElement(By.id("birthDateYear")).clear();
+		} catch(Exception e){System.out.println(e);}
+		try{
+			driver01.findElement(By.id("birthDateYear")).sendKeys(year1);
+		} catch(Exception e){System.out.println(e);}
 
+		try{
 		driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[5]/button"))
 				.click();
+		} catch(Exception e){System.out.println(e);}
 
 		try {
 			driver01.findElement(

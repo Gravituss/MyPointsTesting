@@ -11,9 +11,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class Test01WrongDays {
 
 	static void testingWrongDays() {
-		
+
 		// The key testing value is day of birth
-		String day1 = "55";	
+		String day1 = "55";
 		String day2 = "-2";
 
 		// 2 parts of this test: firstly, we test 55th day of month
@@ -40,70 +40,94 @@ public class Test01WrongDays {
 		wait2.until(ExpectedConditions.visibilityOfElementLocated(By
 				.xpath(".//*[@id='main-header']/div/div[2]/ul[2]/li[2]/a")));
 
-		driver01.findElement(
+		try{
+			driver01.findElement(
 				By.xpath(".//*[@id='main-header']/div/div[2]/ul[2]/li[2]/a"))
-				.click();
+				.click();} 
+		catch(Exception e){System.out.println(e);}
 
 		// Waiting for some bottom-located web element appear
 		// as an indication of the loading the registration form
 		WebDriverWait wait3 = new WebDriverWait(driver01, 25);
-		wait2.until(ExpectedConditions.visibilityOfElementLocated(By
+		wait3.until(ExpectedConditions.visibilityOfElementLocated(By
 				.xpath("html/body/div[5]/div/div/div[3]/div/form/div[1]/button")));
 
 		// Entering email
-		driver01.findElement(
+		try{
+			driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[1]/input[11]"))
-				.sendKeys(MyPointsMain.email);
+				.sendKeys(MyPointsMain.email);} 
+		catch(Exception e){System.out.println(e);}
 
 		// Entering password
-		driver01.findElement(
+		try{
+			driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[1]/input[12]"))
-				.sendKeys(MyPointsMain.passW);
+				.sendKeys(MyPointsMain.passW);} 
+		catch(Exception e){System.out.println(e);}
 
 		// Clicking the button Continue
-		driver01.findElement(
+		try{
+			driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[1]/button"))
-				.click();
+				.click();} 
+		catch(Exception e){System.out.println(e);}
 
 		// Waiting for Privacy policy link to appear
 		WebDriverWait wait4 = new WebDriverWait(driver01, 25);
-		wait2.until(ExpectedConditions.visibilityOfElementLocated(By
+		wait4.until(ExpectedConditions.visibilityOfElementLocated(By
 				.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/p/a[2]")));
 
 		// Clicking to the Step 1 of 2 text to scroll the page neatly
-		driver01.findElement(
+		try{
+			driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/h2"))
-				.click();
+				.click();} 
+		catch(Exception e){System.out.println(e);}
 
 		// Clicking on the image of Male
-		driver01.findElement(
+		try{
+			driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
-				.click();
+				.click();} 
+		catch(Exception e){System.out.println(e);}
 
 		// Entering first name
-		driver01.findElement(
+		try{
+			driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[2]/div[2]/input[1]"))
-				.sendKeys(MyPointsMain.firstName);
+				.sendKeys(MyPointsMain.firstName);} 
+		catch(Exception e){System.out.println(e);}
 
 		// ---------------------------------------
 		// Trying with day value "55"
 
-		driver01.findElement(By.id("birthDateMonth")).sendKeys("05");
-		driver01.findElement(By.id("birthDateYear")).sendKeys("1970");
-		driver01.findElement(By.id("birthDateDay")).sendKeys(day1);
-		driver01.findElement(By.id("address.postalCode")).sendKeys("94043");
+		try{
+			driver01.findElement(By.id("birthDateMonth")).sendKeys("05");
+		} catch(Exception e){System.out.println(e);}
+		try{
+			driver01.findElement(By.id("birthDateYear")).sendKeys("1970");
+		} catch(Exception e){System.out.println(e);}
+		try{
+			driver01.findElement(By.id("birthDateDay")).sendKeys(day1);
+		} catch(Exception e){System.out.println(e);}
+		try{
+			driver01.findElement(By.id("address.postalCode")).sendKeys("94043");
+		} catch(Exception e){System.out.println(e);}
+			
 
-		driver01.findElement(
+		try{
+			driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[5]/button"))
 				.click();
+			} catch(Exception e){System.out.println(e);}
 
 		try {
 			driver01.findElement(
 					By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
 					.isDisplayed();
-			if (driver01
-					.findElement(
-							By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
+			if (driver01.findElement(By.xpath(
+					"html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
 					.isDisplayed()) {
 				t01part01 = false;
 			} else
@@ -114,12 +138,18 @@ public class Test01WrongDays {
 
 		// Trying with day value "-2"
 
-		driver01.findElement(By.id("birthDateDay")).clear();
-		driver01.findElement(By.id("birthDateDay")).sendKeys(day2);
+		try{
+			driver01.findElement(By.id("birthDateDay")).clear();} 
+		catch(Exception e){System.out.println(e);}
+		try{
+			driver01.findElement(By.id("birthDateDay")).sendKeys(day2);}
+		catch(Exception e){System.out.println(e);}
 
-		driver01.findElement(
-				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[5]/button"))
-				.click();
+		try{
+		driver01.findElement(By.xpath(
+				"html/body/div[5]/div/div/div[3]/div/form/div[2]/div[5]/button"))
+				.click();}
+		catch(Exception e){System.out.println(e);}
 
 		try {
 			driver01.findElement(
@@ -131,8 +161,8 @@ public class Test01WrongDays {
 					.isDisplayed()) {
 				t01part02 = false;
 			} else
-				t01part02 = true;
-		} catch (Exception e) {
+				t01part02 = true;}
+		catch (Exception e) {
 			System.out.println(e);
 		}
 
@@ -147,7 +177,7 @@ public class Test01WrongDays {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		
+
 		// Incrementing the counter of finished test cases
 		MyPointsMain.total++;
 

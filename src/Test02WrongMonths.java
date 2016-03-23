@@ -11,9 +11,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class Test02WrongMonths {
 
 	static void testingWrongMonths() {
-		
+
 		// The key testing value is month of birth
-		String month1 = "13";	
+		String month1 = "13";
 		String month2 = "-1";
 
 		// 2 parts of this test: firstly, we test 13th month
@@ -40,62 +40,86 @@ public class Test02WrongMonths {
 		wait2.until(ExpectedConditions.visibilityOfElementLocated(By
 				.xpath(".//*[@id='main-header']/div/div[2]/ul[2]/li[2]/a")));
 
-		driver01.findElement(
+		try{
+			driver01.findElement(
 				By.xpath(".//*[@id='main-header']/div/div[2]/ul[2]/li[2]/a"))
 				.click();
+		} catch(Exception e){System.out.println(e);}
 
 		// Waiting for some bottom-located web element appear
 		// as an indication of the loading the registration form
 		WebDriverWait wait3 = new WebDriverWait(driver01, 25);
-		wait2.until(ExpectedConditions.visibilityOfElementLocated(By
+		wait3.until(ExpectedConditions.visibilityOfElementLocated(By
 				.xpath("html/body/div[5]/div/div/div[3]/div/form/div[1]/button")));
 
 		// Entering email
-		driver01.findElement(
+		try{
+			driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[1]/input[11]"))
 				.sendKeys(MyPointsMain.email);
+		} catch(Exception e){System.out.println(e);}
 
 		// Entering password
-		driver01.findElement(
+		try{
+			driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[1]/input[12]"))
 				.sendKeys(MyPointsMain.passW);
+		} catch(Exception e){System.out.println(e);}
 
 		// Clicking the button Continue
-		driver01.findElement(
+		try{
+			driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[1]/button"))
 				.click();
+		} catch(Exception e){System.out.println(e);}
 
 		// Waiting for Privacy policy link to appear
 		WebDriverWait wait4 = new WebDriverWait(driver01, 25);
-		wait2.until(ExpectedConditions.visibilityOfElementLocated(By
+		wait4.until(ExpectedConditions.visibilityOfElementLocated(By
 				.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/p/a[2]")));
 
 		// Clicking to the Step 1 of 2 text to scroll the page neatly
-		driver01.findElement(
+		try{
+			driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/h2"))
 				.click();
+		} catch(Exception e){System.out.println(e);}
 
 		// Clicking on the image of Male
-		driver01.findElement(
+		try{
+			driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
 				.click();
+		} catch(Exception e){System.out.println(e);}
 
 		// Entering first name
-		driver01.findElement(
+		try{
+			driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[2]/div[2]/input[1]"))
 				.sendKeys(MyPointsMain.firstName);
+		} catch(Exception e){System.out.println(e);}
 
 		// ---------------------------------------
 		// Trying with month value "13"
 
-		driver01.findElement(By.id("birthDateMonth")).sendKeys(month1);
-		driver01.findElement(By.id("birthDateYear")).sendKeys("1970");
-		driver01.findElement(By.id("birthDateDay")).sendKeys("03");
-		driver01.findElement(By.id("address.postalCode")).sendKeys("94043");
+		try{
+			driver01.findElement(By.id("birthDateMonth")).sendKeys(month1);
+		} catch(Exception e){System.out.println(e);}
+		try{
+			driver01.findElement(By.id("birthDateYear")).sendKeys("1970");
+		} catch(Exception e){System.out.println(e);}
+		try{
+			driver01.findElement(By.id("birthDateDay")).sendKeys("03");
+		} catch(Exception e){System.out.println(e);}
+		try{
+			driver01.findElement(By.id("address.postalCode")).sendKeys("94043");
+		} catch(Exception e){System.out.println(e);}
 
-		driver01.findElement(
+		try{
+			driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[5]/button"))
 				.click();
+		} catch(Exception e){System.out.println(e);}
 
 		// If the inscription "Step 1 of X" is still on the page then we are at
 		// the same page
@@ -104,33 +128,42 @@ public class Test02WrongMonths {
 			driver01.findElement(
 					By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
 					.isDisplayed();
-			if (driver01.findElement(
-					By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
+			if (driver01
+					.findElement(
+							By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
 					.isDisplayed()) {
 				t02part01 = false;
-			} else t02part01 = true;
+			} else
+				t02part01 = true;
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 
 		// Trying with month value "-1"
 
-		driver01.findElement(By.id("birthDateMonth")).clear();
-		driver01.findElement(By.id("birthDateMonth")).sendKeys(month2);
+		try{
+			driver01.findElement(By.id("birthDateMonth")).clear();
+		} catch(Exception e){System.out.println(e);}
+		try{
+			driver01.findElement(By.id("birthDateMonth")).sendKeys(month2);
+		} catch(Exception e){System.out.println(e);}
 
-		driver01.findElement(
+		try{
+			driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[5]/button"))
 				.click();
+		} catch(Exception e){System.out.println(e);}
 
 		try {
 			driver01.findElement(
 					By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
 					.isDisplayed();
-			if (driver01.findElement(
-					By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
+			if (driver01.findElement(By.xpath(
+					"html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
 					.isDisplayed()) {
 				t02part02 = false;
-			} else t02part02 = true;
+			} else
+				t02part02 = true;
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -146,7 +179,7 @@ public class Test02WrongMonths {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		
+
 		// Incrementing the counter of finished test cases
 		MyPointsMain.total++;
 
