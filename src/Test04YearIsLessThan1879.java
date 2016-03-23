@@ -134,15 +134,11 @@ public class Test04YearIsLessThan1879 {
 			System.out.println(e);
 		}
 
-		// Sleeping a bit before quitting this instance of driver
-		try {
-			Thread.sleep(MyPointsMain.desirableDelayBeforeClosingWindowAtEachTest);
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-
 		// Incrementing the counter of finished test cases
 		MyPointsMain.total++;
+
+		// Sleeping a bit before quitting this instance of driver
+		MyPointsMain.sleepingABit();
 
 		// Quitting this instance of driver
 		driver01.quit();

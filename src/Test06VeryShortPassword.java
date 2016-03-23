@@ -110,12 +110,9 @@ public class Test06VeryShortPassword {
 			System.out.println(e);
 		}
 
+
 		// Sleeping a bit before quitting this instance of driver
-		try {
-			Thread.sleep(MyPointsMain.desirableDelayBeforeClosingWindowAtEachTest);
-		} catch (Exception e) {
-			System.out.println(e);
-		}
+		MyPointsMain.sleepingABit();
 
 		// Quitting this instance of driver
 		driver01.quit();

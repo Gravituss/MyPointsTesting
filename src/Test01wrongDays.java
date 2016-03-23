@@ -170,16 +170,12 @@ public class Test01WrongDays {
 		// successfully
 		if (!t01part01 && !t01part02)
 			MyPointsMain.test01passed = true;
-
-		// Sleeping a bit before quitting this instance of driver
-		try {
-			Thread.sleep(MyPointsMain.desirableDelayBeforeClosingWindowAtEachTest);
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-
+		
 		// Incrementing the counter of finished test cases
 		MyPointsMain.total++;
+
+		// Sleeping a bit before quitting this instance of driver
+		MyPointsMain.sleepingABit();
 
 		// Quitting this instance of driver
 		driver01.quit();

@@ -35,6 +35,7 @@ public class MyPointsMain {
 		Test05LettersInsteadOfDigits.testingLettersInsteadOfDigitsInBirthday();  
 		Test06VeryShortPassword.testingVeryShortPasswd();
 		Test07CrossForClosingRegForm.testingTheClosingCross();
+		Test08TotallyInvalidEmail.testingTotallyInvalidEmail();
 
 		// Printing the results of all tests
 		MyPointsMain.printingResults();
@@ -174,6 +175,17 @@ public class MyPointsMain {
 		System.out.println("Number of tests failed: " + (total - counter)
 				+ " of " + total);
 
+	}
+	
+	static void sleepingABit (){
+
+		// Sleeping a bit before quitting this instance of driver
+		try {
+			Thread.sleep(MyPointsMain.desirableDelayBeforeClosingWindowAtEachTest);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	
 	}
 
 }
