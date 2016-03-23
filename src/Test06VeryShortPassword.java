@@ -52,7 +52,7 @@ public class Test06VeryShortPassword {
 				.xpath(".//*[@id='main-header']/div/div[2]/ul[2]/li[2]/a")));
 
 		try{
-		driver01.findElement(
+			driver01.findElement(
 				By.xpath(".//*[@id='main-header']/div/div[2]/ul[2]/li[2]/a"))
 				.click();
 		} catch(Exception e){System.out.println(e);}
@@ -60,26 +60,26 @@ public class Test06VeryShortPassword {
 		// Waiting for some bottom-located web element appear
 		// as an indication of the loading the registration form
 		WebDriverWait wait3 = new WebDriverWait(driver01, 25);
-		wait2.until(ExpectedConditions.visibilityOfElementLocated(By
+		wait3.until(ExpectedConditions.visibilityOfElementLocated(By
 				.xpath("html/body/div[5]/div/div/div[3]/div/form/div[1]/button")));
 
 		// Entering email
 		try{
-		driver01.findElement(
-				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[1]/input[11]"))
+			driver01.findElement(By.xpath(
+				"html/body/div[5]/div/div/div[3]/div/form/div[1]/input[11]"))
 				.sendKeys(MyPointsMain.email);
 		} catch(Exception e){System.out.println(e);}
 
 		// Entering password
 		try{
-		driver01.findElement(
-				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[1]/input[12]"))
+			driver01.findElement(By.xpath(
+				"html/body/div[5]/div/div/div[3]/div/form/div[1]/input[12]"))
 				.sendKeys(password);
 		} catch(Exception e){System.out.println(e);}
 
 		// Clicking the button Continue
 		try{
-		driver01.findElement(
+			driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[1]/button"))
 				.click();
 		} catch(Exception e){System.out.println(e);}
@@ -97,10 +97,8 @@ public class Test06VeryShortPassword {
 					.isDisplayed();
 			if (driver01.findElement(
 					By.xpath("html/body/div[5]/div/div/div[3]/div/div/h1"))
-					.isDisplayed()) {
-				;
-			} else
-				t06part0102++;
+					.isDisplayed()) {;
+			} else t06part0102++;
 		} catch (Exception e) {
 			System.out.println(e);
 		}
