@@ -28,7 +28,8 @@ public class MyPointsMain {
 	public static void main(String[] args) {
 
 		// Executing each test from a different class
-		Test01wrongDays.testingWrongDays();
+		Test01WrongDays.testingWrongDays();
+		Test02WrongMonths.testingWrongMonths();
 
 		// Printing the results of all tests
 		if (test01passed) {
