@@ -36,7 +36,7 @@ public class MyPointsMain {
 		Test06VeryShortPassword.testingVeryShortPasswd();
 		Test07CrossForClosingRegForm.testingTheClosingCross();
 		Test08TotallyInvalidEmail.testingTotallyInvalidEmail();
-		Test09LinkTermsOfService.testingTheLinkTermsOfService();
+		//Test09LinkTermsOfService.testingTheLinkTermsOfService();
 
 		// Printing the results of all tests
 		MyPointsMain.printingResults();
@@ -129,6 +129,7 @@ public class MyPointsMain {
 							+ " isn't being processed properly");
 		}
 		System.out.println("-----------");
+		/*
 		if (test09passed) {
 			counter++;
 			System.out.println("Test -09- passed: true");
@@ -163,7 +164,7 @@ public class MyPointsMain {
 		} else {
 			System.out.println("Test 12 passed: FALSE");
 			System.out.println("");
-		}
+		}*/
 		System.out.println("-----------");
 
 		// Printing the total result of all the tests

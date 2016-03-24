@@ -81,7 +81,7 @@ public class Test09LinkTermsOfService {
 		// Switching to the handler of the second window
 		driver01.switchTo().window(window1);
 		
-		MyPointsMain.sleepingABit();
+		/*MyPointsMain.sleepingABit();
 		
 		
 		driver01.switchTo().window(window2);
@@ -103,7 +103,7 @@ public class Test09LinkTermsOfService {
 		driver01.switchTo().window(window2);
 		
 
-		MyPointsMain.sleepingABit();		
+		MyPointsMain.sleepingABit();		*/
 		
 		// Waiting and checking the header of Terms of Service article
 		WebDriverWait wait5 = new WebDriverWait(driver01, 25);
