@@ -13,10 +13,7 @@ public class MyPointsMain {
 	static boolean test06passed = false;
 	static boolean test07passed = false;
 	static boolean test08passed = false;
-	static boolean test09passed = false;
-	static boolean test10passed = false;
-	static boolean test11passed = false;
-	static boolean test12passed = false;
+
 	static int counter = 0;
 	// The number of total finished test cases
 	static int total = 0;
@@ -36,7 +33,7 @@ public class MyPointsMain {
 		Test06VeryShortPassword.testingVeryShortPasswd();
 		Test07CrossForClosingRegForm.testingTheClosingCross();
 		Test08TotallyInvalidEmail.testingTotallyInvalidEmail();
-		//Test09LinkTermsOfService.testingTheLinkTermsOfService();
+		
 
 		// Printing the results of all tests
 		MyPointsMain.printingResults();
@@ -129,42 +126,7 @@ public class MyPointsMain {
 							+ " isn't being processed properly");
 		}
 		System.out.println("-----------");
-		/*
-		if (test09passed) {
-			counter++;
-			System.out.println("Test -09- passed: true");
-			System.out.println("The link -Terms of service- works fine");
-		} else {
-			System.out.println("Test -09- passed: FALSE");
-			System.out.println("The link -Terms of service- doesn't work fine");
-		}
-		System.out.println("-----------");
-		if (test10passed) {
-			counter++;
-			System.out.println("Test -10- passed: true");
-			System.out.println("-----+++------");
-		} else {
-			System.out.println("Test -10- passed: FALSE");
-			System.out.println("+++++---+++++");
-		}
-		System.out.println("-----------");
-		if (test11passed) {
-			counter++;
-			System.out.println("Test -11- passed: true");
-			System.out.println("The link -Privacy policy- works fine");
-		} else {
-			System.out.println("Test -11- passed: FALSE");
-			System.out.println("The link -Privacy policy- doesn't work fine");
-		}
-		System.out.println("-----------");
-		if (test12passed) {
-			counter++;
-			System.out.println("Test -12- passed: true");
-			System.out.println("");
-		} else {
-			System.out.println("Test 12 passed: FALSE");
-			System.out.println("");
-		}*/
+		
 		System.out.println("-----------");
 
 		// Printing the total result of all the tests

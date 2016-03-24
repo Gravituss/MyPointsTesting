@@ -114,14 +114,15 @@ public class Test01WrongDays {
 		try{
 			driver01.findElement(By.id("address.postalCode")).sendKeys("94043");
 		} catch(Exception e){System.out.println(e);}
-			
 
+		// Clicking the button Join now
 		try{
 			driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[5]/button"))
 				.click();
 			} catch(Exception e){System.out.println(e);}
 
+		// 
 		try {
 			driver01.findElement(
 					By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
@@ -145,12 +146,14 @@ public class Test01WrongDays {
 			driver01.findElement(By.id("birthDateDay")).sendKeys(day2);}
 		catch(Exception e){System.out.println(e);}
 
+		// Clicking the button Join now
 		try{
 		driver01.findElement(By.xpath(
 				"html/body/div[5]/div/div/div[3]/div/form/div[2]/div[5]/button"))
 				.click();}
 		catch(Exception e){System.out.println(e);}
 
+		// 
 		try {
 			driver01.findElement(
 					By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
