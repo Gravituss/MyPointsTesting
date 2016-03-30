@@ -1,4 +1,7 @@
-// 123
+// This is a group of test-cases that check different points of
+// registration process at MyPoints website.
+// Each test-case is located in a separate class.
+// Main class gives the results after running all the tests.
 
 
 
