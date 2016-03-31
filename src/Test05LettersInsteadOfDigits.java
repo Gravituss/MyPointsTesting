@@ -1,5 +1,5 @@
 // This test will check how the website reacts if we type letters instead of digits
-// in the field for birthday
+// in the text area for birthday
 // Expected result: it will not open another webpage after trying to submit the
 // registration form
 
@@ -9,23 +9,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
 public class Test05LettersInsteadOfDigits {
 
 	static void testingLettersInsteadOfDigitsInBirthday() {
 
 		// The key testing values are day, month, year of birth
 		String day1 = "tt";
-		String month1 = "pp";
-		String year1 = "asdf";
-
-		// 3 parts of this test: firstly, we test letters in field of day
-		// secondly, we test letters in field of month
-		// thirdly, we test letters in field of year of birth
-		// if at least one part is true (wrong value accepted) then the test
-		// result is false
-		boolean t05part01 = false;
-		boolean t05part02 = false;
-		boolean t05part03 = false;
 
 		WebDriver driver01 = new FirefoxDriver();
 		driver01.get("https://www.mypoints.com/emp/u/index.vm");
@@ -97,71 +87,11 @@ public class Test05LettersInsteadOfDigits {
 		// If the inscription "Step 1 of X" is still on the page then we are at
 		// the same page
 		// and the website processed the wrong value correctly
-		try {
-			driver01.findElement(By.xpath(
-					"html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
-					.isDisplayed();
-			if (driver01.findElement(By.xpath(
-					"html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
-					.isDisplayed()) {
-				t05part01 = false;
-			} else
-				t05part01 = true;
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-
-		// Re-entering a valid value for day field
-		driver01.findElement(By.id("birthDateDay")).clear();
-		driver01.findElement(By.id("birthDateDay")).sendKeys("15");
-
-		// Trying with month value "pp"
-		driver01.findElement(By.id("birthDateMonth")).clear();
-		driver01.findElement(By.id("birthDateMonth")).sendKeys(month1);
-		driver01.findElement(By.xpath(
-				"html/body/div[5]/div/div/div[3]/div/form/div[2]/div[5]/button")).click();
-
-		try {
-			driver01.findElement(By.xpath(
-					"html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
-					.isDisplayed();
-			if (driver01.findElement(By.xpath(
-					"html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
-					.isDisplayed()) {
-				t05part02 = false;
-			} else
-				t05part02 = true;
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-
-		// Re-entering a valid value for month field
-		driver01.findElement(By.id("birthDateMonth")).clear();
-		driver01.findElement(By.id("birthDateMonth")).sendKeys("07");
-
-		// Trying with year value "asdf"
-		driver01.findElement(By.id("birthDateYear")).clear();
-		driver01.findElement(By.id("birthDateYear")).sendKeys(year1);
-		driver01.findElement(By.xpath(
-				"html/body/div[5]/div/div/div[3]/div/form/div[2]/div[5]/button")).click();
-
-		try {
-			driver01.findElement(By.xpath(
-					"html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
-					.isDisplayed();
-			if (driver01.findElement(By.xpath(
-					"html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
-					.isDisplayed()) {
-				t05part03 = false;
-			} else t05part03 = true;
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-
-		// If all the three values were processed properly then Test05 is passed
-		// successfully
-		if (!t05part01 && !t05part02 && !t05part03)
+		if (driver01.findElement(By.xpath(
+				"html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
+				.isDisplayed()) {
 			MyPointsMain.test05passed = true;
+		}
 
 		// Incrementing the counter of finished test cases
 		MyPointsMain.total++;
