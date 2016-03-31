@@ -1,4 +1,4 @@
-//This test will check how the website reacts if we type password of 1-2 symbols
+//This test will check how the website reacts if we type password of 2 symbols
 //Expected result: it will not pass to the registration form
 
 import org.openqa.selenium.By;
@@ -7,30 +7,17 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
 public class Test06VeryShortPassword {
-
-	// 2 parts of this test: firstly, we test one-symbol password
-	// secondly, we test 2-symbols password
-	// if at least one part of test will accept very short password, then the
-	// test result is false
-
-	static int t06part0102 = 0;
 
 	static void testingVeryShortPasswd() {
 
 		// The key testing value is password
-		String passwd1 = "5";
-		String passwd2 = "df";
-
+		String passwd1 = "df";
 		Test06VeryShortPassword.testingShortPass(passwd1);
-		Test06VeryShortPassword.testingShortPass(passwd2);
-		if (t06part0102 == 0) {
-			MyPointsMain.test06passed = true;
-		}
 
 		// Incrementing the counter of finished test cases
 		MyPointsMain.total++;
-
 	}
 
 	static void testingShortPass(String password) {
@@ -81,17 +68,12 @@ public class Test06VeryShortPassword {
 		}
 
 		// Checking if MyPoints(R) inscription is still on the page
-		try {
-			driver01.findElement(
-					By.xpath("html/body/div[5]/div/div/div[3]/div/div/h1"))
-					.isDisplayed();
-			if (driver01.findElement(
-					By.xpath("html/body/div[5]/div/div/div[3]/div/div/h1"))
-					.isDisplayed()) {;
-			} else t06part0102++;
-		} catch (Exception e) {
-			System.out.println(e);
+		if (driver01.findElement(
+				By.xpath("html/body/div[5]/div/div/div[3]/div/div/h1"))
+				.isDisplayed()) {
+			MyPointsMain.test06passed = true;
 		}
+
 		driver01.findElement(By.xpath(
 					"html/body/div[5]/div/div/div[3]/div/div/h1")).click();
 					
