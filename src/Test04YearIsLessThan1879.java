@@ -34,12 +34,8 @@ public class Test04YearIsLessThan1879 {
 		WebDriverWait wait2 = new WebDriverWait(driver01, 25);
 		wait2.until(ExpectedConditions.visibilityOfElementLocated(
 				By.xpath(".//*[@id='main-header']/div/div[2]/ul[2]/li[2]/a")));
-
-		try{
-			driver01.findElement(
-				By.xpath(".//*[@id='main-header']/div/div[2]/ul[2]/li[2]/a"))
-				.click();
-		} catch(Exception e){System.out.println(e);}
+		driver01.findElement(By.xpath(
+				".//*[@id='main-header']/div/div[2]/ul[2]/li[2]/a")).click();
 
 		// Waiting for some bottom-located web element appear
 		// as an indication of the loading the registration form
@@ -48,25 +44,18 @@ public class Test04YearIsLessThan1879 {
 				.xpath("html/body/div[5]/div/div/div[3]/div/form/div[1]/button")));
 
 		// Entering email
-		try{
-			driver01.findElement(
+		driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[1]/input[11]"))
 				.sendKeys(MyPointsMain.email);
-		} catch(Exception e){System.out.println(e);}
 
 		// Entering password
-		try{
-			driver01.findElement(
+		driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[1]/input[12]"))
 				.sendKeys(MyPointsMain.passW);
-		} catch(Exception e){System.out.println(e);}
 
 		// Clicking the button Continue
-		try{
-			driver01.findElement(
-				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[1]/button"))
-				.click();
-		} catch(Exception e){System.out.println(e);}
+		driver01.findElement(By.xpath(
+				"html/body/div[5]/div/div/div[3]/div/form/div[1]/button")).click();
 
 		// Waiting for Privacy policy link to appear
 		WebDriverWait wait4 = new WebDriverWait(driver01, 25);
@@ -74,47 +63,27 @@ public class Test04YearIsLessThan1879 {
 				.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/p/a[2]")));
 
 		// Clicking on the Step 1 of 2 text to scroll the page neatly
-		try{
-			driver01.findElement(
-				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/h2"))
-				.click();
-		} catch(Exception e){System.out.println(e);}
+		driver01.findElement(By.xpath(
+				"html/body/div[5]/div/div/div[3]/div/form/div[2]/h2")).click();
 
 		// Clicking on the image of Male
-		try{
-			driver01.findElement(
-				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
-				.click();
-		} catch(Exception e){System.out.println(e);}
+		driver01.findElement(By.xpath(
+				"html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]")).click();
 
 		// Entering first name
-		try{
-			driver01.findElement(
+		driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[2]/div[2]/input[1]"))
 				.sendKeys(MyPointsMain.firstName);
-		} catch(Exception e){System.out.println(e);}
 
 		// ---------------------------------------
-		// Trying with year value "1987"
+		// Trying with year value "1777"
 
-		try{
-			driver01.findElement(By.id("birthDateMonth")).sendKeys("02");
-		} catch(Exception e){System.out.println(e);}
-		try{
-			driver01.findElement(By.id("birthDateYear")).sendKeys(year);
-		} catch(Exception e){System.out.println(e);}
-		try{
-			driver01.findElement(By.id("birthDateDay")).sendKeys("03");
-		} catch(Exception e){System.out.println(e);}
-		try{
-			driver01.findElement(By.id("address.postalCode")).sendKeys("94043");
-		} catch(Exception e){System.out.println(e);}
-
-		try{
-			driver01.findElement(
-				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[5]/button"))
-				.click();
-		} catch(Exception e){System.out.println(e);}
+		driver01.findElement(By.id("birthDateMonth")).sendKeys("02");
+		driver01.findElement(By.id("birthDateYear")).sendKeys(year);
+		driver01.findElement(By.id("birthDateDay")).sendKeys("03");
+		driver01.findElement(By.id("address.postalCode")).sendKeys("94043");
+		driver01.findElement(By.xpath(
+				"html/body/div[5]/div/div/div[3]/div/form/div[2]/div[5]/button")).click();
 
 		// If the inscription "Step 1 of X" is still on the page then we are at
 		// the same page
@@ -129,7 +98,6 @@ public class Test04YearIsLessThan1879 {
 					.isDisplayed()) {
 				MyPointsMain.test04passed = true;
 			}
-
 		} catch (Exception e) {
 			System.out.println(e);
 		}
