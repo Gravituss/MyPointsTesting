@@ -73,34 +73,22 @@ public class Test01WrongDays {
 				"html/body/div[5]/div/div/div[3]/div/form/div[2]/h2")).click();
 				
 		// Clicking on the image of Male
-		try{
-			driver01.findElement(
-				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
-				.click();} 
-		catch(Exception e){System.out.println(e);}
+		driver01.findElement(By.xpath(
+				"html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
+				.click();
 
 		// Entering first name
-		try{
-			driver01.findElement(
-				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[2]/div[2]/input[1]"))
-				.sendKeys(MyPointsMain.firstName);} 
-		catch(Exception e){System.out.println(e);}
+		driver01.findElement(By.xpath(
+				"html/body/div[5]/div/div/div[3]/div/form/div[2]/div[2]/div[2]/input[1]"))
+				.sendKeys(MyPointsMain.firstName);
 
 		// ---------------------------------------
 		// Trying with day value "55"
 
-		try{
-			driver01.findElement(By.id("birthDateMonth")).sendKeys("05");
-		} catch(Exception e){System.out.println(e);}
-		try{
-			driver01.findElement(By.id("birthDateYear")).sendKeys("1970");
-		} catch(Exception e){System.out.println(e);}
-		try{
-			driver01.findElement(By.id("birthDateDay")).sendKeys(day1);
-		} catch(Exception e){System.out.println(e);}
-		try{
-			driver01.findElement(By.id("address.postalCode")).sendKeys("94043");
-		} catch(Exception e){System.out.println(e);}
+		driver01.findElement(By.id("birthDateMonth")).sendKeys("05");
+		driver01.findElement(By.id("birthDateYear")).sendKeys("1970");
+		driver01.findElement(By.id("birthDateDay")).sendKeys(day1);
+		driver01.findElement(By.id("address.postalCode")).sendKeys("94043");
 
 		// Clicking the button Join now
 		driver01.findElement(By.xpath(
@@ -123,20 +111,13 @@ public class Test01WrongDays {
 
 		// Trying with day value "-2"
 
-		try{
-			driver01.findElement(By.id("birthDateDay")).clear();} 
-		catch(Exception e){System.out.println(e);}
-		try{
-			driver01.findElement(By.id("birthDateDay")).sendKeys(day2);}
-		catch(Exception e){System.out.println(e);}
+		driver01.findElement(By.id("birthDateDay")).clear();
+		driver01.findElement(By.id("birthDateDay")).sendKeys(day2);
 
 		// Clicking the button Join now
-		try{
 		driver01.findElement(By.xpath(
-				"html/body/div[5]/div/div/div[3]/div/form/div[2]/div[5]/button"))
-				.click();}
-		catch(Exception e){System.out.println(e);}
-
+				"html/body/div[5]/div/div/div[3]/div/form/div[2]/div[5]/button")).click();
+				
 		// 
 		try {
 			driver01.findElement(
