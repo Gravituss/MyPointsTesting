@@ -40,11 +40,8 @@ public class Test01WrongDays {
 		wait2.until(ExpectedConditions.visibilityOfElementLocated(By
 				.xpath(".//*[@id='main-header']/div/div[2]/ul[2]/li[2]/a")));
 
-		try{
-			driver01.findElement(
-				By.xpath(".//*[@id='main-header']/div/div[2]/ul[2]/li[2]/a"))
-				.click();} 
-		catch(Exception e){System.out.println(e);}
+		driver01.findElement(By.xpath(
+				".//*[@id='main-header']/div/div[2]/ul[2]/li[2]/a")).click();
 
 		// Waiting for some bottom-located web element appear
 		// as an indication of the loading the registration form
@@ -53,25 +50,18 @@ public class Test01WrongDays {
 				.xpath("html/body/div[5]/div/div/div[3]/div/form/div[1]/button")));
 
 		// Entering email
-		try{
-			driver01.findElement(
-				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[1]/input[11]"))
-				.sendKeys(MyPointsMain.email);} 
-		catch(Exception e){System.out.println(e);}
+		driver01.findElement(By.xpath(
+				"html/body/div[5]/div/div/div[3]/div/form/div[1]/input[11]"))
+				.sendKeys(MyPointsMain.email);
 
 		// Entering password
-		try{
-			driver01.findElement(
-				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[1]/input[12]"))
-				.sendKeys(MyPointsMain.passW);} 
-		catch(Exception e){System.out.println(e);}
+		driver01.findElement(By.xpath(
+				"html/body/div[5]/div/div/div[3]/div/form/div[1]/input[12]"))
+				.sendKeys(MyPointsMain.passW);
 
 		// Clicking the button Continue
-		try{
-			driver01.findElement(
-				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[1]/button"))
-				.click();} 
-		catch(Exception e){System.out.println(e);}
+		driver01.findElement(By.xpath(
+				"html/body/div[5]/div/div/div[3]/div/form/div[1]/button")).click();	
 
 		// Waiting for Privacy policy link to appear
 		WebDriverWait wait4 = new WebDriverWait(driver01, 25);
@@ -79,12 +69,9 @@ public class Test01WrongDays {
 				.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/p/a[2]")));
 
 		// Clicking to the Step 1 of 2 text to scroll the page neatly
-		try{
-			driver01.findElement(
-				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/h2"))
-				.click();} 
-		catch(Exception e){System.out.println(e);}
-
+		driver01.findElement(By.xpath(
+				"html/body/div[5]/div/div/div[3]/div/form/div[2]/h2")).click();
+				
 		// Clicking on the image of Male
 		try{
 			driver01.findElement(
@@ -116,11 +103,8 @@ public class Test01WrongDays {
 		} catch(Exception e){System.out.println(e);}
 
 		// Clicking the button Join now
-		try{
-			driver01.findElement(
-				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[5]/button"))
-				.click();
-			} catch(Exception e){System.out.println(e);}
+		driver01.findElement(By.xpath(
+				"html/body/div[5]/div/div/div[3]/div/form/div[2]/div[5]/button")).click();
 
 		// 
 		try {
