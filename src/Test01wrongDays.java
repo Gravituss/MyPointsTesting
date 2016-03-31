@@ -14,14 +14,6 @@ public class Test01WrongDays {
 
 		// The key testing value is day of birth
 		String day1 = "55";
-		String day2 = "-2";
-
-		// 2 parts of this test: firstly, we test 55th day of month
-		// secondly, we test negative value of day of month
-		// if at least one part is true (wrong value accepted) then the test
-		// result is false
-		boolean t01part01 = false;
-		boolean t01part02 = false;
 
 		WebDriver driver01 = new FirefoxDriver();
 		driver01.get("https://www.mypoints.com/emp/u/index.vm");
@@ -29,8 +21,8 @@ public class Test01WrongDays {
 		// Waiting for some very bottom web element will load and appear as
 		// an indication of loading the whole web page
 		WebDriverWait wait = new WebDriverWait(driver01, 25);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By
-				.className("copyright")));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.className("copyright")));
 
 		// Maximizing the browser's window
 		driver01.manage().window().maximize();
@@ -39,7 +31,6 @@ public class Test01WrongDays {
 		WebDriverWait wait2 = new WebDriverWait(driver01, 25);
 		wait2.until(ExpectedConditions.visibilityOfElementLocated(By
 				.xpath(".//*[@id='main-header']/div/div[2]/ul[2]/li[2]/a")));
-
 		driver01.findElement(By.xpath(
 				".//*[@id='main-header']/div/div[2]/ul[2]/li[2]/a")).click();
 
@@ -94,50 +85,13 @@ public class Test01WrongDays {
 		driver01.findElement(By.xpath(
 				"html/body/div[5]/div/div/div[3]/div/form/div[2]/div[5]/button")).click();
 
-		// 
-		try {
-			driver01.findElement(
+		// If male image is displayed then wrong value was processed properly
+		// and we are still on the same page
+		if(driver01.findElement(
 					By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
-					.isDisplayed();
-			if (driver01.findElement(By.xpath(
-					"html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
-					.isDisplayed()) {
-				t01part01 = false;
-			} else
-				t01part01 = true;
-		} catch (Exception e) {
-			System.out.println(e);
+					.isDisplayed()){
+					MyPointsMain.test01passed = true;
 		}
-
-		// Trying with day value "-2"
-
-		driver01.findElement(By.id("birthDateDay")).clear();
-		driver01.findElement(By.id("birthDateDay")).sendKeys(day2);
-
-		// Clicking the button Join now
-		driver01.findElement(By.xpath(
-				"html/body/div[5]/div/div/div[3]/div/form/div[2]/div[5]/button")).click();
-				
-		// 
-		try {
-			driver01.findElement(
-					By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
-					.isDisplayed();
-			if (driver01
-					.findElement(
-							By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
-					.isDisplayed()) {
-				t01part02 = false;
-			} else
-				t01part02 = true;}
-		catch (Exception e) {
-			System.out.println(e);
-		}
-
-		// If both values were processed properly then Test01 is passed
-		// successfully
-		if (!t01part01 && !t01part02)
-			MyPointsMain.test01passed = true;
 		
 		// Incrementing the counter of finished test cases
 		MyPointsMain.total++;
