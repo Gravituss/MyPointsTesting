@@ -110,7 +110,5 @@ public class Test04YearIsLessThan1879 {
 
 		// Quitting this instance of driver
 		driver01.quit();
-
 	}
-
 }

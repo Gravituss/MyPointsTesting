@@ -147,7 +147,5 @@ public class Test01WrongDays {
 
 		// Quitting this instance of driver
 		driver01.quit();
-
 	}
-
 }

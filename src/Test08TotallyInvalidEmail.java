@@ -33,13 +33,9 @@ public class Test08TotallyInvalidEmail {
 		WebDriverWait wait2 = new WebDriverWait(driver01, 25);
 		wait2.until(ExpectedConditions.visibilityOfElementLocated(By
 				.xpath(".//*[@id='main-header']/div/div[2]/ul[2]/li[2]/a")));
-	
-		try{
-			driver01.findElement(
-				By.xpath(".//*[@id='main-header']/div/div[2]/ul[2]/li[2]/a"))
-				.click();
-		} catch(Exception e){System.out.println(e);}
-	
+		driver01.findElement(By.xpath
+				(".//*[@id='main-header']/div/div[2]/ul[2]/li[2]/a")).click();
+		
 		// Waiting for some bottom-located web element appear
 		// as an indication of the loading the registration form
 		WebDriverWait wait3 = new WebDriverWait(driver01, 25);
@@ -47,26 +43,18 @@ public class Test08TotallyInvalidEmail {
 				.xpath("html/body/div[5]/div/div/div[3]/div/form/div[1]/button")));
 		
 		// Trying to enter email
-		try{
-			driver01.findElement(
+        driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[1]/input[11]"))
 				.sendKeys(emmail);
-		} catch(Exception e){
-			MyPointsMain.test07passed = true;}
 		
 		// Entering password
-		try{
-			driver01.findElement(
+		driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[1]/input[12]"))
 				.sendKeys(MyPointsMain.passW);
-		} catch(Exception e){System.out.println(e);}		
 		
 		// Clicking the button Continue
-		try{
-			driver01.findElement(
-				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[1]/button"))
-				.click();
-		} catch(Exception e){System.out.println(e);}
+        driver01.findElement(By.xpath(
+				"html/body/div[5]/div/div/div[3]/div/form/div[1]/button")).click();
 		
 		// Trying to find email
 		try{
@@ -88,7 +76,5 @@ public class Test08TotallyInvalidEmail {
 
 		// Quitting this instance of driver
 		driver01.quit();
-	
 	}
-
 }

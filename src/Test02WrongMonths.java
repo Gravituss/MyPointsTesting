@@ -143,7 +143,5 @@ public class Test02WrongMonths {
 
 		// Quitting this instance of driver
 		driver01.quit();
-
 	}
-
 }

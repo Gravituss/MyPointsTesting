@@ -30,12 +30,9 @@ public class Test07CrossForClosingRegForm {
 		wait2.until(ExpectedConditions.visibilityOfElementLocated(By
 				.xpath(".//*[@id='main-header']/div/div[2]/ul[2]/li[2]/a")));
 	
-		try{
-			driver01.findElement(
-				By.xpath(".//*[@id='main-header']/div/div[2]/ul[2]/li[2]/a"))
-				.click();
-		} catch(Exception e){System.out.println(e);}
-	
+		driver01.findElement(By.xpath(
+				".//*[@id='main-header']/div/div[2]/ul[2]/li[2]/a")).click();
+				
 		// Waiting for some bottom-located web element appear
 		// as an indication of the loading the registration form
 		WebDriverWait wait3 = new WebDriverWait(driver01, 25);
@@ -50,12 +47,9 @@ public class Test07CrossForClosingRegForm {
 		}
 		
 		// Trying to click on the closing cross
-		try{
-			driver01.findElement(
-				By.xpath("html/body/div[5]/div/div/div[2]/div[1]/img"))
-				.click();
-		} catch(Exception e){System.out.println(e);}
-		
+		driver01.findElement(
+				By.xpath("html/body/div[5]/div/div/div[2]/div[1]/img")).click();
+				
 		// Trying to enter email
 		try{
 			driver01.findElement(
@@ -72,7 +66,5 @@ public class Test07CrossForClosingRegForm {
 
 		// Quitting this instance of driver
 		driver01.quit();
-		
 	}
-
 }
