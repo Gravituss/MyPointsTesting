@@ -79,25 +79,16 @@ public class Test03YearIsMoreThanCurrentYear {
 		driver01.findElement(By.id("birthDateYear")).sendKeys(year);
 		driver01.findElement(By.id("birthDateDay")).sendKeys("03");
 		driver01.findElement(By.id("address.postalCode")).sendKeys("94043");
-
 		driver01.findElement(By.xpath(
 				"html/body/div[5]/div/div/div[3]/div/form/div[2]/div[5]/button")).click();
 
 		// If the inscription "Step 1 of X" is still on the page then we are at
 		// the same page
 		// and the website processed the wrong value correctly
-
-		try {
-			driver01.findElement(By.xpath(
-					"html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
-					.isDisplayed();
-			if (driver01.findElement(By.xpath(
-					"html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
-					.isDisplayed()) {
-				MyPointsMain.test03passed = true;
-			}
-		} catch (Exception e) {
-			System.out.println(e);
+		if (driver01.findElement(By.xpath(
+				"html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
+				.isDisplayed()) {
+			MyPointsMain.test03passed = true;
 		}
 		
 		// Incrementing the counter of finished test cases
