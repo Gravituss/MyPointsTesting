@@ -89,17 +89,10 @@ public class Test04YearIsLessThan1879 {
 		// the same page
 		// and the website processed the wrong value correctly
 
-		try {
-			driver01.findElement(
-					By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
-					.isDisplayed();
-			if (driver01.findElement(By.xpath(
-					"html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
-					.isDisplayed()) {
-				MyPointsMain.test04passed = true;
-			}
-		} catch (Exception e) {
-			System.out.println(e);
+		if (driver01.findElement(By.xpath(
+				"html/body/div[5]/div/div/div[3]/div/form/div[2]/div[1]/div[2]/a[1]"))
+				.isDisplayed()) {
+			MyPointsMain.test04passed = true;
 		}
 
 		// Incrementing the counter of finished test cases

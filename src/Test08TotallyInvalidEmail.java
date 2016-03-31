@@ -57,16 +57,15 @@ public class Test08TotallyInvalidEmail {
 				"html/body/div[5]/div/div/div[3]/div/form/div[1]/button")).click();
 		
 		// Trying to find email
-		try{
+		if(
 			driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[1]/input[11]"))
-				.click();
+				.isDisplayed()){
 			
-			// If we find the email web element, then Continue button didn't work,
-			// so the website operated with wrong email properly
+			// If the email text area is displayed, then Continue button didn't work,
+			// so the website operated wrong email properly
 			MyPointsMain.test08passed = true;
-		} catch(Exception e){
-			MyPointsMain.test07passed = true;}		
+		} 	
 		
 		// Incrementing the counter of finished test cases
 		MyPointsMain.total++;

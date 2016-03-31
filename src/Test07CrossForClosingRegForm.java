@@ -50,13 +50,12 @@ public class Test07CrossForClosingRegForm {
 		driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[2]/div[1]/img")).click();
 				
-		// Trying to enter email
-		try{
-			driver01.findElement(
+		// If email text area is not displayed then the closing cross worked
+		if(!driver01.findElement(
 				By.xpath("html/body/div[5]/div/div/div[3]/div/form/div[1]/input[11]"))
-				.sendKeys(MyPointsMain.email);
-		} catch(Exception e){
-			MyPointsMain.test07passed = true;}
+				.isDisplayed()){
+			MyPointsMain.test07passed = true;
+		}
 		
 		// Incrementing the counter of finished test cases
 		MyPointsMain.total++;
